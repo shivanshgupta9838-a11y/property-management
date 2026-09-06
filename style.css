@@ -448,6 +448,30 @@ a {
         justify-content: center;
     }
 }
+@media (max-width: 640px) {
+    .home-search {
+        flex-direction: column;
+        gap: 12px;
+        max-width: 100%;
+    }
+
+    .search-field {
+        width: 100%;
+        flex: none;
+    }
+
+    .home-search select {
+        width: 100%;
+        min-width: 100%;
+        height: 50px !important;
+        flex: none;
+    }
+
+    .home-search button {
+        width: 100%;
+        height: 48px;
+    }
+}
 /* ================= FILTER BOX ================= */
 .filter-box {
     background: white;
