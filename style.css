@@ -1438,12 +1438,13 @@ tr:last-child td {
 
     .home-search {
         flex-direction: column;
+        width:100%;
     }
-
+    .search-field,
+    .search-field input,
     .home-search select,
     .home-search button {
         width: 100%;
-        height: 50px;
     }
 
     .featured-grid,
