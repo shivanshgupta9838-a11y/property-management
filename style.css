@@ -1045,59 +1045,63 @@ tr:last-child td {
     color: #dbeafe;
 }
 /* ================= SEARCH ================= */
-
 .home-search {
     margin-top: 35px;
     background: white;
     padding: 12px;
     border-radius: 10px;
     display: flex;
-    align-items: center;
     gap: 10px;
-    width: 100%;
     max-width: 850px;
+    flex-wrap: wrap; /* chhoti screen par niche stack ho jayega */
+}
+
+/* Ye line sabse important hai - box-sizing fix */
+.home-search * {
+    box-sizing: border-box;
 }
 
 .search-field {
-    flex: 1;
+    flex: 1 1 220px;
+    min-width: 220px;
     position: relative;
 }
+
 .search-field i {
     position: absolute;
-    top: 50%;
+    top: 16px;
     left: 15px;
-    transform: translateY(-50%);
     color: #64748b;
+}
+
+.search-field input,
+.home-search select {
+    height: 50px;
+    border: 1px solid #e5e7eb;
+    border-radius: 7px;
+    padding: 0 15px;
+    outline: none;
 }
 
 .search-field input {
     width: 100%;
-    height: 55px;
-    border: 1px solid #e5e7eb;
-    border-radius: 7px;
-    padding: 0 15px 0 45px;
-    font-size: 16px;
-    outline: none;
+    padding-left: 42px;
 }
+
 .home-search select {
-    width: 180px;
-    height: 55px;
-    border: 1px solid #e5e7eb;
-    border-radius: 7px;
-    padding: 0 15px;
-    font-size: 16px;
-    outline: none;
+    flex: 0 0 170px;
+    min-width: 170px;
 }
+
 .home-search button {
-    width: 150px;
-    height: 55px;
     background: #2563eb;
     color: white;
     border: none;
     border-radius: 7px;
+    padding: 0 25px;
     cursor: pointer;
-    font-size: 16px;
     font-weight: bold;
+    flex-shrink: 0;
 }
 
 /* ================= HERO STATS ================= */
