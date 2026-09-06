@@ -1037,10 +1037,6 @@ tr:last-child td {
     line-height: 1.7;
     color: #dbeafe;
 }
-
-
-/* ================= SEARCH ================= */
-
 /* ================= SEARCH ================= */
 
 .home-search {
@@ -1059,12 +1055,6 @@ tr:last-child td {
     flex: 0 0 50%;
     position: relative;
 }
-
-.home-search select {
-    width:200px;
-    min-width:200px;
-}
-
 .search-field i {
     position: absolute;
     top: 50%;
@@ -1079,6 +1069,15 @@ tr:last-child td {
     border: 1px solid #e5e7eb;
     border-radius: 7px;
     padding: 0 15px 0 45px;
+    font-size: 16px;
+    outline: none;
+}
+.home-search select {
+    width: 180px;
+    height: 55px;
+    border: 1px solid #e5e7eb;
+    border-radius: 7px;
+    padding: 0 15px;
     font-size: 16px;
     outline: none;
 }
