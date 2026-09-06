@@ -1,0 +1,485 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Inquiries | PropertyPro</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-building"></i>
+
+            <span>PropertyPro</span>
+
+        </div>
+
+
+        <ul class="menu">
+
+            <li>
+
+                <a href="index.html">
+
+                    <i class="fa-solid fa-gauge"></i>
+
+                    <span>Dashboard</span>
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="properties.html">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    <span>Properties</span>
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="owners.html">
+
+                    <i class="fa-solid fa-users"></i>
+
+                    <span>Owners</span>
+
+                </a>
+
+            </li>
+
+
+            <li class="active">
+
+                <a href="inquiries.html">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    <span>Inquiries</span>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+
+        <div class="sidebar-bottom">
+
+            <p>Property Management System</p>
+
+            <small>College Project</small>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <button class="menu-btn"
+                    onclick="toggleSidebar()">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+
+            <div>
+
+                <h2>Inquiries</h2>
+
+                <p>Manage customer inquiries</p>
+
+            </div>
+
+
+            <div class="profile">
+
+                <div class="profile-icon">
+
+                    <i class="fa-solid fa-user"></i>
+
+                </div>
+
+
+                <div>
+
+                    <strong>Admin</strong>
+
+                    <small>Administrator</small>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- PAGE CONTENT -->
+
+        <section class="dashboard">
+
+
+            <div class="page-heading">
+
+                <div>
+
+                    <h1>Customer Inquiries</h1>
+
+                    <p>
+                        Manage all property-related inquiries.
+                    </p>
+
+                </div>
+
+
+                <button class="primary-btn"
+                        onclick="openInquiryModal()">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Add Inquiry
+
+                </button>
+
+            </div>
+
+
+            <!-- SEARCH -->
+
+            <div class="filter-box">
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        id="searchInquiry"
+                        placeholder="Search customer or property..."
+                        onkeyup="displayInquiries()">
+
+                </div>
+
+
+                <select id="inquiryStatusFilter"
+                        onchange="displayInquiries()">
+
+                    <option value="">
+                        All Status
+                    </option>
+
+                    <option value="New">
+                        New
+                    </option>
+
+                    <option value="Contacted">
+                        Contacted
+                    </option>
+
+                    <option value="Closed">
+                        Closed
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- INQUIRIES TABLE -->
+
+            <div class="table-card">
+
+                <div class="table-responsive">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Customer</th>
+
+                                <th>Contact</th>
+
+                                <th>Property</th>
+
+                                <th>Message</th>
+
+                                <th>Status</th>
+
+                                <th>Actions</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="inquiryTable">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- ================= INQUIRY MODAL ================= -->
+
+<div id="inquiryModal"
+     class="modal">
+
+
+    <div class="modal-content">
+
+
+        <div class="modal-header">
+
+            <div>
+
+                <h2 id="inquiryModalTitle">
+
+                    Add Inquiry
+
+                </h2>
+
+
+                <p>
+
+                    Enter customer inquiry details.
+
+                </p>
+
+            </div>
+
+
+            <button
+                class="close-btn"
+                onclick="closeInquiryModal()">
+
+                &times;
+
+            </button>
+
+        </div>
+
+
+        <form id="inquiryForm">
+
+
+            <div class="form-grid">
+
+
+                <!-- CUSTOMER NAME -->
+
+                <div class="form-group">
+
+                    <label>
+                        Customer Name *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="customerName"
+                        required>
+
+                </div>
+
+
+                <!-- PHONE -->
+
+                <div class="form-group">
+
+                    <label>
+                        Phone Number *
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="customerPhone"
+                        required>
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label>
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="customerEmail">
+
+                </div>
+
+
+                <!-- PROPERTY -->
+
+                <div class="form-group">
+
+                    <label>
+                        Select Property *
+                    </label>
+
+                    <select
+                        id="inquiryProperty"
+                        required>
+
+                        <option value="">
+                            Select Property
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- STATUS -->
+
+                <div class="form-group">
+
+                    <label>
+                        Inquiry Status *
+                    </label>
+
+                    <select
+                        id="inquiryStatus">
+
+                        <option value="New">
+                            New
+                        </option>
+
+                        <option value="Contacted">
+                            Contacted
+                        </option>
+
+                        <option value="Closed">
+                            Closed
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- MESSAGE -->
+
+                <div class="form-group full">
+
+                    <label>
+                        Message
+                    </label>
+
+                    <textarea
+                        id="inquiryMessage"
+                        placeholder="Enter customer message...">
+                    </textarea>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <div class="form-buttons">
+
+                <button
+                    type="button"
+                    class="cancel-btn"
+                    onclick="closeInquiryModal()">
+
+                    Cancel
+
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="primary-btn">
+
+                    <i class="fa-solid fa-save"></i>
+
+                    Save Inquiry
+
+                </button>
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+</div>
+
+
+<script src="js/inquiries.js"></script>
+
+
+<script>
+
+function toggleSidebar() {
+
+    document
+        .querySelector(".sidebar")
+        .classList.toggle("show");
+
+}
+
+</script>
+
+
+</body>
+
+</html>
+

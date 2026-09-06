@@ -1,0 +1,479 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>PropertyPro | Find Your Dream Property</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="home-navbar">
+
+    <div class="home-logo">
+
+        <i class="fa-solid fa-building"></i>
+
+        <span>PropertyPro</span>
+
+    </div>
+
+
+    <nav class="home-nav">
+
+        <a href="#home">Home</a>
+
+        <a href="#properties">Properties</a>
+
+        <a href="#about">About</a>
+
+        <a href="#contact">Contact</a>
+
+    </nav>
+
+
+    <a href="dashboard.html"
+       class="dashboard-btn">
+
+        <i class="fa-solid fa-gauge"></i>
+
+        Dashboard
+
+    </a>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <p class="hero-tag">
+            FIND YOUR DREAM PROPERTY
+        </p>
+
+        <h1>
+            Find The Perfect Place
+            <br>
+            To Call <span>Home</span>
+        </h1>
+
+        <p class="hero-text">
+
+            Discover the best properties for sale
+            and rent. Find your dream home with
+            PropertyPro.
+
+        </p>
+
+
+        <!-- SEARCH BOX -->
+
+        <div class="home-search">
+
+            <div class="search-field">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                <input
+                    type="text"
+                    id="homeSearch"
+                    placeholder="Search by location...">
+
+            </div>
+
+
+            <select id="homeType">
+
+                <option value="">
+                    Property Type
+                </option>
+
+                <option value="House">
+                    House
+                </option>
+
+                <option value="Apartment">
+                    Apartment
+                </option>
+
+                <option value="Villa">
+                    Villa
+                </option>
+
+                <option value="Office">
+                    Office
+                </option>
+
+                <option value="Shop">
+                    Shop
+                </option>
+
+            </select>
+
+
+            <button onclick="searchProperties()">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                Search
+
+            </button>
+
+        </div>
+
+
+        <div class="hero-stats">
+
+            <div>
+
+                <h3 id="homePropertyCount">
+                    0+
+                </h3>
+
+                <p>
+                    Properties
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3 id="homeOwnerCount">
+                    0+
+                </h3>
+
+                <p>
+                    Property Owners
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    100%
+                </h3>
+
+                <p>
+                    Trusted Service
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FEATURED PROPERTIES ================= -->
+
+<section class="featured-section"
+         id="properties">
+
+    <div class="section-heading">
+
+        <div>
+
+            <p class="section-tag">
+                OUR PROPERTIES
+            </p>
+
+            <h2>
+                Featured Properties
+            </h2>
+
+            <p>
+                Explore our latest and best
+                properties.
+            </p>
+
+        </div>
+
+
+        <a href="properties.html"
+           class="view-all-btn">
+
+            View All
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+    </div>
+
+
+    <div
+        class="featured-grid"
+        id="featuredProperties">
+
+        <!-- Properties will load here -->
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="about-section"
+         id="about">
+
+    <div class="about-image">
+
+        <div class="about-box">
+
+            <i class="fa-solid fa-building"></i>
+
+        </div>
+
+    </div>
+
+
+    <div class="about-content">
+
+        <p class="section-tag">
+            ABOUT PROPERTYPRO
+        </p>
+
+        <h2>
+            Making Property Management Simple
+        </h2>
+
+        <p>
+
+            PropertyPro is a modern property
+            management platform designed to help
+            users manage properties, owners and
+            customer inquiries easily.
+
+        </p>
+
+        <p>
+
+            Our platform provides a simple way
+            to explore properties and manage
+            property information efficiently.
+
+        </p>
+
+
+        <div class="about-features">
+
+            <div>
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                Easy Property Management
+
+            </div>
+
+
+            <div>
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                Trusted Property Owners
+
+            </div>
+
+
+            <div>
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                Quick Customer Inquiries
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= WHY CHOOSE US ================= -->
+
+<section class="why-section">
+
+    <div class="center-heading">
+
+        <p class="section-tag">
+            WHY CHOOSE US
+        </p>
+
+        <h2>
+            Everything You Need In One Place
+        </h2>
+
+    </div>
+
+
+    <div class="why-grid">
+
+
+        <div class="why-card">
+
+            <div class="why-icon">
+
+                <i class="fa-solid fa-house"></i>
+
+            </div>
+
+            <h3>
+                Best Properties
+            </h3>
+
+            <p>
+
+                Explore different types of
+                properties in one platform.
+
+            </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+            <div class="why-icon">
+
+                <i class="fa-solid fa-users"></i>
+
+            </div>
+
+            <h3>
+                Trusted Owners
+            </h3>
+
+            <p>
+
+                Manage and connect with
+                registered property owners.
+
+            </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+            <div class="why-icon">
+
+                <i class="fa-solid fa-comments"></i>
+
+            </div>
+
+            <h3>
+                Easy Inquiries
+            </h3>
+
+            <p>
+
+                Send and manage property
+                inquiries quickly.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="contact-section"
+         id="contact">
+
+    <div>
+
+        <p class="section-tag">
+            CONTACT US
+        </p>
+
+        <h2>
+            Looking For Your Dream Property?
+        </h2>
+
+        <p>
+
+            Contact PropertyPro and start
+            exploring properties today.
+
+        </p>
+
+    </div>
+
+
+    <a href="properties.html"
+       class="contact-btn">
+
+        Explore Properties
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+    </a>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="home-footer">
+
+    <div class="footer-logo">
+
+        <i class="fa-solid fa-building"></i>
+
+        <strong>
+            PropertyPro
+        </strong>
+
+    </div>
+
+
+    <p>
+
+        Property Management System
+        | College Project
+
+    </p>
+
+
+    <p>
+
+        © 2026 PropertyPro.
+        All Rights Reserved.
+
+    </p>
+
+</footer>
+
+
+<script src="js/home.js"></script>
+
+</body>
+</html>
+

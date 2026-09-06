@@ -1,0 +1,277 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PropertyPro | Property Management</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-building"></i>
+            <span>PropertyPro</span>
+        </div>
+
+        <ul class="menu">
+
+            <li class="active">
+                <a href="dashboard.html">
+                    <i class="fa-solid fa-gauge"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="properties.html">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Properties</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="owners.html">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Owners</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="inquiries.html">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>Inquiries</span>
+                </a>
+            </li>
+
+        </ul>
+
+        <div class="sidebar-bottom">
+            <p>Property Management System</p>
+            <small>College Project</small>
+        </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Topbar -->
+        <header class="topbar">
+
+            <button class="menu-btn" onclick="toggleSidebar()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div>
+                <h2>Dashboard</h2>
+                <p>Welcome to PropertyPro</p>
+            </div>
+
+            <div class="profile">
+                <div class="profile-icon">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div>
+                    <strong>Admin</strong>
+                    <small>Administrator</small>
+                </div>
+            </div>
+
+        </header>
+
+
+        <!-- Dashboard -->
+        <section class="dashboard">
+
+            <div class="page-heading">
+                <div>
+                    <h1>Overview</h1>
+                    <p>Manage your properties, owners and inquiries.</p>
+                </div>
+
+                <a href="properties.html" class="primary-btn">
+                    <i class="fa-solid fa-plus"></i>
+                    Add Property
+                </a>
+            </div>
+
+
+            <!-- Statistics -->
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon property-icon">
+                        <i class="fa-solid fa-house"></i>
+                    </div>
+
+                    <div>
+                        <span>Total Properties</span>
+                        <h2 id="totalProperties">0</h2>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon owner-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+
+                    <div>
+                        <span>Total Owners</span>
+                        <h2 id="totalOwners">0</h2>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon inquiry-icon">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+
+                    <div>
+                        <span>Total Inquiries</span>
+                        <h2 id="totalInquiries">0</h2>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon available-icon">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+
+                    <div>
+                        <span>Available</span>
+                        <h2 id="availableProperties">0</h2>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-grid">
+
+                <!-- Recent Properties -->
+                <div class="dashboard-card">
+
+                    <div class="card-header">
+                        <div>
+                            <h3>Recent Properties</h3>
+                            <p>Latest properties added</p>
+                        </div>
+
+                        <a href="properties.html">View All</a>
+                    </div>
+
+                    <div id="recentProperties" class="recent-list">
+
+                        <div class="empty-state">
+                            <i class="fa-solid fa-house"></i>
+                            <p>No properties added yet.</p>
+                            <a href="properties.html">Add your first property</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Recent Inquiries -->
+                <div class="dashboard-card">
+
+                    <div class="card-header">
+                        <div>
+                            <h3>Recent Inquiries</h3>
+                            <p>Latest customer inquiries</p>
+                        </div>
+
+                        <a href="inquiries.html">View All</a>
+                    </div>
+
+                    <div id="recentInquiries" class="recent-list">
+
+                        <div class="empty-state">
+                            <i class="fa-solid fa-envelope"></i>
+                            <p>No inquiries yet.</p>
+                            <a href="inquiries.html">View inquiries</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Quick Actions -->
+            <div class="quick-section">
+
+                <h3>Quick Actions</h3>
+
+                <div class="quick-grid">
+
+                    <a href="properties.html" class="quick-card">
+                        <i class="fa-solid fa-house-circle-plus"></i>
+                        <div>
+                            <strong>Add Property</strong>
+                            <span>Add a new property</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right arrow"></i>
+                    </a>
+
+
+                    <a href="owners.html" class="quick-card">
+                        <i class="fa-solid fa-user-plus"></i>
+                        <div>
+                            <strong>Add Owner</strong>
+                            <span>Register a property owner</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right arrow"></i>
+                    </a>
+
+
+                    <a href="inquiries.html" class="quick-card">
+                        <i class="fa-solid fa-message"></i>
+                        <div>
+                            <strong>View Inquiries</strong>
+                            <span>Check customer inquiries</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right arrow"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="js/dashboard.js"></script>
+
+<script>
+function toggleSidebar() {
+    document.querySelector(".sidebar").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Properties | PropertyPro</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <i class="fa-solid fa-building"></i>
+                <span>PropertyPro</span>
+            </div>
+
+            <ul class="menu">
+
+                <li>
+                    <a href="index.html">
+                        <i class="fa-solid fa-gauge"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="active">
+                    <a href="properties.html">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Properties</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="owners.html">
+                        <i class="fa-solid fa-users"></i>
+                        <span>Owners</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="inquiries.html">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>Inquiries</span>
+                    </a>
+                </li>
+
+            </ul>
+
+            <div class="sidebar-bottom">
+                <p>Property Management System</p>
+                <small>College Project</small>
+            </div>
+
+        </aside>
+
+
+        <!-- Main -->
+        <main class="main-content">
+
+            <!-- Topbar -->
+            <header class="topbar">
+
+                <button class="menu-btn" onclick="toggleSidebar()">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div>
+                    <h2>Properties</h2>
+                    <p>Manage your property listings</p>
+                </div>
+
+                <div class="profile">
+                    <div class="profile-icon">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+
+                    <div>
+                        <strong>Admin</strong>
+                        <small>Administrator</small>
+                    </div>
+                </div>
+
+            </header>
+
+
+            <section class="dashboard">
+
+                <!-- Heading -->
+                <div class="page-heading">
+
+                    <div>
+                        <h1>Properties</h1>
+                        <p>Add and manage all properties.</p>
+                    </div>
+
+                    <button class="primary-btn" onclick="openPropertyModal()">
+                        <i class="fa-solid fa-plus"></i>
+                        Add Property
+                    </button>
+
+                </div>
+
+
+                <!-- Search & Filter -->
+                <div class="filter-box">
+
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input type="text" id="searchProperty" placeholder="Search property or location..."
+                            onkeyup="displayProperties()">
+                    </div>
+
+                    <select id="typeFilter" onchange="displayProperties()">
+                        <option value="">All Types</option>
+                        <option value="House">House</option>
+                        <option value="Apartment">Apartment</option>
+                        <option value="Villa">Villa</option>
+                        <option value="Office">Office</option>
+                        <option value="Shop">Shop</option>
+                    </select>
+
+
+                    <select id="statusFilter" onchange="displayProperties()">
+                        <option value="">All Status</option>
+                        <option value="Available">Available</option>
+                        <option value="Sold">Sold</option>
+                        <option value="Rented">Rented</option>
+                    </select>
+
+                </div>
+
+
+                <!-- Property Cards -->
+                <div id="propertyContainer" class="property-grid">
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- ================= MODAL ================= -->
+
+    <div id="propertyModal" class="modal">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <div>
+                    <h2 id="modalTitle">Add Property</h2>
+                    <p>Enter property details below.</p>
+                </div>
+
+                <button onclick="closePropertyModal()" class="close-btn">
+                    &times;
+                </button>
+
+            </div>
+
+
+            <form id="propertyForm">
+
+                <input type="hidden" id="propertyId">
+
+
+                <div class="form-grid">
+
+                    <div class="form-group full">
+                        <label>Property Title *</label>
+
+                        <input type="text" id="propertyTitle" placeholder="e.g. Luxury 3 BHK House" required>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Location *</label>
+
+                        <input type="text" id="propertyLocation" placeholder="e.g. Kanpur, UP" required>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Price *</label>
+
+                        <input type="number" id="propertyPrice" placeholder="e.g. 4500000" required>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Property Type *</label>
+
+                        <select id="propertyType" required>
+
+                            <div class="form-group">
+                                <label>Property Owner *</label>
+
+                                <select id="propertyOwner" required>
+                                    <option value="">Select Owner</option>
+                                </select>
+                            </div>
+
+                            <option value="">Select Type</option>
+
+                            <option value="House">House</option>
+
+                            <option value="Apartment">
+                                Apartment
+                            </option>
+
+                            <option value="Villa">
+                                Villa
+                            </option>
+
+                            <option value="Office">
+                                Office
+                            </option>
+
+                            <option value="Shop">
+                                Shop
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Status *</label>
+
+                        <select id="propertyStatus" required>
+
+                            <option value="Available">
+                                Available
+                            </option>
+
+                            <option value="Sold">
+                                Sold
+                            </option>
+
+                            <option value="Rented">
+                                Rented
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Bedrooms</label>
+
+                        <input type="number" id="propertyBedrooms" placeholder="e.g. 3" min="0">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Area (sq ft)</label>
+
+                        <input type="number" id="propertyArea" placeholder="e.g. 1800" min="0">
+                    </div>
+
+
+                    <div class="form-group full">
+                        <label>Property Image</label>
+
+                        <input type="file" id="propertyImage" accept="image/*">
+
+                        <small>
+                            JPG, PNG or WEBP image
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <div class="form-buttons">
+
+                    <button type="button" class="cancel-btn" onclick="closePropertyModal()">
+                        Cancel
+                    </button>
+
+                    <button type="submit" class="primary-btn">
+                        <i class="fa-solid fa-save"></i>
+                        Save Property
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="js/properties.js"></script>
+
+    <script>
+        function toggleSidebar() {
+            document.querySelector(".sidebar").classList.toggle("show");
+        }
+    </script>
+
+</body>
+
+</html>
