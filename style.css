@@ -1052,7 +1052,7 @@ tr:last-child td {
 }
 
 .search-field {
-    flex: 0 0 50%;
+    flex: 1;
     position: relative;
 }
 .search-field i {
