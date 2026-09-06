@@ -385,43 +385,46 @@ a {
     }
 }
 
-
 @media (max-width: 768px) {
-
     .sidebar {
         transform: translateX(-100%);
         transition: 0.3s;
     }
-
     .sidebar.show {
         transform: translateX(0);
     }
-
     .main-content {
         margin-left: 0;
         width: 100%;
     }
-
     .menu-btn {
         display: block;
     }
-
     .dashboard {
         padding: 20px;
     }
-
     .page-heading {
         align-items: flex-start;
         gap: 15px;
         flex-direction: column;
     }
-
     .dashboard-grid {
         grid-template-columns: 1fr;
     }
+
+    /* NEW - filter box mobile fix */
+    .filter-box {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .search-box,
+    .filter-box select {
+        width: 100%;
+        min-width: 100%;
+        flex: none;
+    }
 }
-
-
 @media (max-width: 500px) {
 
     .stats-grid {
