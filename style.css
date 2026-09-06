@@ -499,6 +499,12 @@ a {
 .filter-box select:focus {
     border-color: #2563eb;
 }
+<input 
+    type="text" 
+    class="..." 
+    placeholder="Search property or location..." 
+    autocomplete="off"
+/>
 /* ================= PROPERTY GRID ================= */
 
 .property-grid {
