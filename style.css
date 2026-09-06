@@ -1056,9 +1056,13 @@ tr:last-child td {
 }
 
 .search-field {
-    flex: 1;
-    min-width: 0;
+    flex: 0 0 60%;
     position: relative;
+}
+
+.home-search select{
+    width:200px;
+    min-width:200px;
 }
 
 .search-field i {
