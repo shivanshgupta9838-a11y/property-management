@@ -458,8 +458,13 @@ a {
 }
 
 .search-box {
-    flex: 1;
-    position: relative;
+   width: 100%;
+    height: 55px;
+    padding: 0 20px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px 0 0 8px;
+    outline: none;
 }
 
 .search-box i {
@@ -1036,56 +1041,65 @@ tr:last-child td {
 
 /* ================= SEARCH ================= */
 
+/* ================= SEARCH ================= */
+
 .home-search {
     margin-top: 35px;
     background: white;
     padding: 12px;
     border-radius: 10px;
     display: flex;
+    align-items: center;
     gap: 10px;
+    width: 100%;
     max-width: 850px;
 }
 
 .search-field {
     flex: 1;
+    min-width: 0;
     position: relative;
 }
 
 .search-field i {
     position: absolute;
-    top: 16px;
+    top: 50%;
     left: 15px;
+    transform: translateY(-50%);
     color: #64748b;
-}
-
-.search-field input,
-.home-search select {
-    height: 50px;
-    border: 1px solid #e5e7eb;
-    border-radius: 7px;
-    padding: 0 15px;
-    outline: none;
 }
 
 .search-field input {
     width: 100%;
-    padding-left: 42px;
+    height: 55px;
+    border: 1px solid #e5e7eb;
+    border-radius: 7px;
+    padding: 0 15px 0 45px;
+    font-size: 16px;
+    outline: none;
 }
 
 .home-search select {
-    min-width: 160px;
+    width: 180px;
+    height: 55px;
+    border: 1px solid #e5e7eb;
+    border-radius: 7px;
+    padding: 0 15px;
+    font-size: 16px;
+    outline: none;
 }
 
 .home-search button {
+    width: 150px;
+    height: 55px;
     background: #2563eb;
     color: white;
     border: none;
     border-radius: 7px;
-    padding: 0 25px;
     cursor: pointer;
+    font-size: 16px;
     font-weight: bold;
 }
-
 
 /* ================= HERO STATS ================= */
 
