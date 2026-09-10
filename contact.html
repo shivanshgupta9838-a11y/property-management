@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Send Inquiry | PropertyPro</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+</head>
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<header class="home-navbar">
+
+    <div class="home-logo">
+
+        <i class="fa-solid fa-building"></i>
+
+        <span>PropertyPro</span>
+
+    </div>
+
+
+    <nav class="home-nav">
+
+        <a href="index.html">Home</a>
+
+        <a href="public-properties.html">
+            Properties
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- INQUIRY SECTION -->
+
+<section class="inquiry-public-section">
+
+    <div class="inquiry-public-card">
+
+
+        <div class="inquiry-public-heading">
+
+            <p class="section-tag">
+                PROPERTY INQUIRY
+            </p>
+
+            <h1>
+                Send Your Inquiry
+            </h1>
+
+            <p>
+                Fill in your details and we will
+                contact you soon.
+            </p>
+
+        </div>
+
+
+        <form id="publicInquiryForm">
+
+
+            <div class="form-grid">
+
+
+                <!-- NAME -->
+
+                <div class="form-group">
+
+                    <label>
+                        Your Name *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="publicCustomerName"
+                        placeholder="Enter your name"
+                        required>
+
+                </div>
+
+
+                <!-- PHONE -->
+
+                <div class="form-group">
+
+                    <label>
+                        Phone Number *
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="publicCustomerPhone"
+                        placeholder="Enter phone number"
+                        required>
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group full">
+
+                    <label>
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="publicCustomerEmail"
+                        placeholder="Enter email address">
+
+                </div>
+
+
+                <!-- MESSAGE -->
+
+                <div class="form-group full">
+
+                    <label>
+                        Message
+                    </label>
+
+                    <textarea
+                        id="publicInquiryMessage"
+                        placeholder="Write your message...">
+                    </textarea>
+
+                </div>
+
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="primary-btn">
+
+                <i class="fa-solid fa-paper-plane"></i>
+
+                Send Inquiry
+
+            </button>
+
+
+        </form>
+
+
+    </div>
+
+</section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/supabase.js"></script>
+
+<script src="js/public-inquiry.js"></script>
+
+
+</body>
+
+</html>

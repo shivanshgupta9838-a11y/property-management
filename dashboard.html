@@ -10,7 +10,7 @@
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -28,10 +28,14 @@
         <ul class="menu">
 
             <li class="active">
-                <a href="dashboard.html">
-                    <i class="fa-solid fa-gauge"></i>
-                    <span>Dashboard</span>
-                </a>
+                <a href="login.html"
+   class="dashboard-btn">
+
+    <i class="fa-solid fa-lock"></i>
+
+    Admin Login
+
+</a>
             </li>
 
             <li>
@@ -80,16 +84,28 @@
                 <p>Welcome to PropertyPro</p>
             </div>
 
-            <div class="profile">
-                <div class="profile-icon">
-                    <i class="fa-solid fa-user"></i>
-                </div>
+           <div class="profile">
 
-                <div>
-                    <strong>Admin</strong>
-                    <small>Administrator</small>
-                </div>
-            </div>
+    <div class="profile-icon">
+        <i class="fa-solid fa-user"></i>
+    </div>
+
+    <div>
+        <strong>Admin</strong>
+        <small>Administrator</small>
+    </div>
+
+    <button
+        onclick="logout()"
+        class="logout-btn">
+
+        <i class="fa-solid fa-right-from-bracket"></i>
+
+        Logout
+
+    </button>
+
+</div>
 
         </header>
 
@@ -264,8 +280,13 @@
 
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<script src="dashboard.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/auth-check.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/dashboard.js"></script>
+
 
 <script>
 function toggleSidebar() {

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Send Inquiry | PropertyPro</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+<section class="public-inquiry-section">
+
+
+    <div class="public-inquiry-box">
+
+
+        <h1>Send Property Inquiry</h1>
+
+        <p>
+            Fill in your details and we will contact you.
+        </p>
+
+
+        <form id="publicInquiryForm">
+
+
+            <div class="form-group">
+
+                <label>Your Name *</label>
+
+                <input
+                    type="text"
+                    id="publicCustomerName"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Phone Number *</label>
+
+                <input
+                    type="tel"
+                    id="publicCustomerPhone"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Email Address</label>
+
+                <input
+                    type="email"
+                    id="publicCustomerEmail">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Message</label>
+
+                <textarea
+                    id="publicInquiryMessage"
+                    placeholder="Enter your message...">
+                </textarea>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="primary-btn">
+
+                <i class="fa-solid fa-paper-plane"></i>
+
+                Send Inquiry
+
+            </button>
+
+
+        </form>
+
+
+        <br>
+
+
+        <a
+            href="public-properties.html"
+            class="cancel-btn">
+
+            Back to Properties
+
+        </a>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- SUPABASE -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script src="js/supabase.js"></script>
+
+
+<script src="js/public-inquiry.js"></script>
+
+
+</body>
+
+</html>

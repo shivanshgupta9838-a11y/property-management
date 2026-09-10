@@ -12,7 +12,7 @@
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -43,15 +43,14 @@
 
     </nav>
 
+<a href="login.html"
+   class="dashboard-btn">
 
-    <a href="dashboard.html"
-       class="dashboard-btn">
+    <i class="fa-solid fa-lock"></i>
 
-        <i class="fa-solid fa-gauge"></i>
+    Admin Login
 
-        Dashboard
-
-    </a>
+</a>
 
 </header>
 
@@ -209,7 +208,7 @@
         </div>
 
 
-        <a href="properties.html"
+        <a href="public-properties.html"
            class="view-all-btn">
 
             View All
@@ -238,13 +237,10 @@
          id="about">
 
     <div class="about-image">
-
-        <div class="about-box">
-
-            <i class="fa-solid fa-building"></i>
-
+<a href="#properties" class="about-box">
+        <i class="fa-solid fa-building"></i>
+    </a>
         </div>
-
     </div>
 
 
@@ -461,7 +457,6 @@
 
     </p>
 
-
     <p>
 
         © 2026 PropertyPro.
@@ -471,8 +466,11 @@
 
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<script src="home.js"></script>
+<script src="js/supabase.js"></script>
+
+<script src="js/home.js"></script>
 
 </body>
 </html>

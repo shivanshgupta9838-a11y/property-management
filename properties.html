@@ -4,12 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Properties | PropertyPro</title>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -202,38 +200,35 @@
 
                     <div class="form-group">
                         <label>Property Type *</label>
-
-                        <select id="propertyType" required>
-                            
-                            <option value="">Select Type</option>
-
-                            <option value="House">House</option>
-
-                            <option value="Apartment">
-                                Apartment
-                            </option>
-
-                            <option value="Villa">
-                                Villa
-                            </option>
-
-                            <option value="Office">
-                                Office
-                            </option>
-
-                            <option value="Shop">
-                                Shop
-                            </option>
-                             </select>
                     </div>
-                            <div class="form-group">
-                                <label>Property Owner *</label>
+                    <select id="propertyType" required>
+                        <option value="">Select Type</option>
 
-                                <select id="propertyOwner" required>
-                                    <option value="">Select Owner</option>
-                                </select>
-                            </div>
-                    
+                        <option value="House">House</option>
+
+                        <option value="Apartment">
+                            Apartment
+                        </option>
+
+                        <option value="Villa">
+                            Villa
+                        </option>
+
+                        <option value="Office">
+                            Office
+                        </option>
+
+                        <option value="Shop">
+                            Shop
+                        </option>
+                    </select>
+                    <div class="form-group">
+                        <label>Property Owner *</label>
+                    </div>
+                    <select id="propertyOwner" required>
+                        <option value="">Select Owner</option>
+                    </select>
+
                     <div class="form-group">
                         <label>Status *</label>
 
@@ -301,16 +296,16 @@
         </div>
 
     </div>
-
-
-    <script src="properties.js"></script>
-
     <script>
         function toggleSidebar() {
             document.querySelector(".sidebar").classList.toggle("show");
         }
     </script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+<script src="js/supabase.js"></script>
+<script src="js/auth-check.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/properties.js"></script>
 </body>
-
 </html>
