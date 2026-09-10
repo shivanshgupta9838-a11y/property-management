@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>PropertyPro | System Test</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .test-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(250px, 1fr));
+
+            gap: 20px;
+        }
+
+        .test-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .test-card h3 {
+            margin-top: 0;
+        }
+
+        .status {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .loading {
+            color: orange;
+        }
+
+        .success {
+            color: green;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .links {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .links a {
+            display: inline-block;
+            margin: 8px;
+            padding: 12px 18px;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        .run-btn {
+            display: block;
+            margin: 30px auto;
+            padding: 14px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            background: #111827;
+            color: white;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <h1>
+        PropertyPro System Test
+    </h1>
+
+    <p class="subtitle">
+        Complete Project Connection & Database Check
+    </p>
+
+
+    <button
+        class="run-btn"
+        onclick="runAllTests()">
+
+        Run All Tests
+
+    </button>
+
+
+    <div class="test-grid">
+
+
+        <div class="test-card">
+
+            <h3>
+                <i class="fa-solid fa-house"></i>
+                Properties
+            </h3>
+
+            <p id="propertiesStatus"
+               class="status loading">
+
+                Checking...
+
+            </p>
+
+        </div>
+
+
+
+        <div class="test-card">
+
+            <h3>
+                <i class="fa-solid fa-users"></i>
+                Owners
+            </h3>
+
+            <p id="ownersStatus"
+               class="status loading">
+
+                Checking...
+
+            </p>
+
+        </div>
+
+
+
+        <div class="test-card">
+
+            <h3>
+                <i class="fa-solid fa-envelope"></i>
+                Inquiries
+            </h3>
+
+            <p id="inquiriesStatus"
+               class="status loading">
+
+                Checking...
+
+            </p>
+
+        </div>
+
+
+
+        <div class="test-card">
+
+            <h3>
+                <i class="fa-solid fa-database"></i>
+                Supabase Connection
+            </h3>
+
+            <p id="supabaseStatus"
+               class="status loading">
+
+                Checking...
+
+            </p>
+
+        </div>
+
+
+
+        <div class="test-card">
+
+            <h3>
+                <i class="fa-solid fa-globe"></i>
+                Public Website
+            </h3>
+
+            <p id="websiteStatus"
+               class="status">
+
+                Available
+
+            </p>
+
+        </div>
+
+
+
+        <div class="test-card">
+
+            <h3>
+                <i class="fa-solid fa-shield-halved"></i>
+                Admin Login
+            </h3>
+
+            <p id="authStatus"
+               class="status loading">
+
+                Checking...
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="public-properties.html">
+            Public Properties
+        </a>
+
+        <a href="login.html">
+            Admin Login
+        </a>
+
+    </div>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/supabase.js"></script>
+
+<script src="js/test.js"></script>
+
+
+</body>
+
+</html>
