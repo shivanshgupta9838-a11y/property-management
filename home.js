@@ -1,4 +1,9 @@
+// ==========================================
+// HOME PAGE - SUPABASE
+// ==========================================
 
+
+// PAGE LOAD
 document.addEventListener("DOMContentLoaded", function () {
 
     loadHomeStatistics();
@@ -8,40 +13,131 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-/* ================= HOME STATISTICS ================= */
+// ==========================================
+// HOME STATISTICS
+// ==========================================
 
-function loadHomeStatistics() {
+async function loadHomeStatistics() {
 
-    const properties =
-        JSON.parse(localStorage.getItem("properties")) || [];
+    // LOAD PROPERTIES COUNT
 
-    const owners =
-        JSON.parse(localStorage.getItem("owners")) || [];
+    const { count: propertyCount, error: propertyError } =
+        await supabaseClient
+            .from("properties")
+            .select("*", {
+                count: "exact",
+                head: true
+            });
 
 
-    document.getElementById("homePropertyCount")
-        .textContent = properties.length + "+";
+    if (propertyError) {
+
+        console.error(
+            "Property count error:",
+            propertyError
+        );
+
+        return;
+
+    }
 
 
-    document.getElementById("homeOwnerCount")
-        .textContent = owners.length + "+";
+    // LOAD OWNERS COUNT
+
+    const { count: ownerCount, error: ownerError } =
+        await supabaseClient
+            .from("owners")
+            .select("*", {
+                count: "exact",
+                head: true
+            });
+
+
+    if (ownerError) {
+
+        console.error(
+            "Owner count error:",
+            ownerError
+        );
+
+    }
+
+
+    // DISPLAY COUNTS
+
+    document
+        .getElementById("homePropertyCount")
+        .textContent =
+        (propertyCount || 0) + "+";
+
+
+    document
+        .getElementById("homeOwnerCount")
+        .textContent =
+        (ownerCount || 0) + "+";
 
 }
 
 
-/* ================= FEATURED PROPERTIES ================= */
+// ==========================================
+// FEATURED PROPERTIES
+// ==========================================
 
-function loadFeaturedProperties() {
+async function loadFeaturedProperties() {
 
-    const properties =
-        JSON.parse(localStorage.getItem("properties")) || [];
+    const { data, error } =
+        await supabaseClient
+            .from("properties")
+            .select("*")
+            .order("id", {
+                ascending: false
+            });
 
+    console.log("Properties data:", data);
+    console.log("Properties error:", error);
 
     const container =
-        document.getElementById("featuredProperties");
+        document.getElementById(
+            "featuredProperties"
+        );
 
 
-    if (properties.length === 0) {
+    // ERROR
+
+    if (error) {
+
+        console.error(
+            "Error loading properties:",
+            error
+        );
+
+
+        container.innerHTML = `
+
+            <div class="home-empty">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+                <h3>
+                    Properties Load Nahi Ho Payi
+                </h3>
+
+                <p>
+                    Please try again later.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    // NO PROPERTIES
+
+    if (!data || data.length === 0) {
 
         container.innerHTML = `
 
@@ -67,18 +163,16 @@ function loadFeaturedProperties() {
     }
 
 
-    const featuredProperties =
-        properties.slice(-6).reverse();
-
+    // DISPLAY PROPERTIES
 
     container.innerHTML =
-        featuredProperties.map(property => {
+        data.map(property => {
 
 
             const image =
                 property.image
                     ? property.image
-                    : "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80";
+                    : "https://via.placeholder.com/800x500?text=Property+Image";
 
 
             return `
@@ -94,7 +188,7 @@ function loadFeaturedProperties() {
 
                         <span class="home-status">
 
-                            ${property.status}
+                            ${property.status || "Available"}
 
                         </span>
 
@@ -102,6 +196,7 @@ function loadFeaturedProperties() {
 
 
                     <div class="home-property-content">
+
 
                         <h3>
 
@@ -121,11 +216,13 @@ function loadFeaturedProperties() {
 
                         <div class="home-property-info">
 
+
                             <span>
 
                                 <i class="fa-solid fa-bed"></i>
 
-                                ${property.bedrooms || 0} Beds
+                                ${property.bedrooms || 0}
+                                Beds
 
                             </span>
 
@@ -134,9 +231,11 @@ function loadFeaturedProperties() {
 
                                 <i class="fa-solid fa-ruler-combined"></i>
 
-                                ${property.area || 0} sq ft
+                                ${property.area || 0}
+                                sq ft
 
                             </span>
+
 
                         </div>
 
@@ -144,10 +243,11 @@ function loadFeaturedProperties() {
                         <div class="home-price">
 
                             ₹${Number(
-                                property.price
-                            ).toLocaleString("en-IN")}
+                property.price || 0
+            ).toLocaleString("en-IN")}
 
                         </div>
+
 
                     </div>
 
@@ -160,21 +260,26 @@ function loadFeaturedProperties() {
 }
 
 
-/* ================= SEARCH ================= */
+// ==========================================
+// SEARCH PROPERTIES
+// ==========================================
 
 function searchProperties() {
 
     const location =
         document
-        .getElementById("homeSearch")
-        .value;
+            .getElementById("homeSearch")
+            .value;
 
 
     const type =
         document
-        .getElementById("homeType")
-        .value;
+            .getElementById("homeType")
+            .value;
 
+
+    // Search values temporarily save
+    // for properties page
 
     localStorage.setItem(
         "searchLocation",
@@ -192,4 +297,3 @@ function searchProperties() {
         "properties.html";
 
 }
-
