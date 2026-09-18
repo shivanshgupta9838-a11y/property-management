@@ -1,62 +1,50 @@
-document
-    .getElementById("loginForm")
-    .addEventListener(
-        "submit",
-        async function(event) {
+document.addEventListener("DOMContentLoaded", function () {
 
-            event.preventDefault();
+    const loginForm = document.getElementById("loginForm");
 
+    if (!loginForm) {
+        console.error("loginForm not found");
+        return;
+    }
 
-            const email =
-                document
-                    .getElementById(
-                        "loginEmail"
-                    )
-                    .value;
+    loginForm.addEventListener("submit", async function (event) {
 
+        event.preventDefault();
 
-            const password =
-                document
-                    .getElementById(
-                        "loginPassword"
-                    )
-                    .value;
+        const email = document.getElementById("loginEmail").value.trim();
+        const password = document.getElementById("loginPassword").value;
 
+        const loginError = document.getElementById("loginError");
 
-            const {
-                data,
-                error
-            } =
-                await supabaseClient.auth
-                    .signInWithPassword({
+        loginError.textContent = "";
 
-                        email: email,
+        try {
 
-                        password: password
-
-                    });
-
+            const { data, error } =
+                await supabaseClient.auth.signInWithPassword({
+                    email: email,
+                    password: password
+                });
 
             if (error) {
-
-                console.error(error);
-
-
-                document
-                    .getElementById(
-                        "loginError"
-                    )
-                    .textContent =
-                    "Invalid email or password!";
-
-
+                console.error("Login error:", error);
+                loginError.textContent = error.message;
                 return;
-
             }
 
+            console.log("Login successful:", data);
 
-            window.location.href =
-                "dashboard.html";
+            window.location.href = "dashboard.html";
+
+        } catch (err) {
+
+            console.error("Unexpected error:", err);
+
+            loginError.textContent =
+                "Login failed. Please try again.";
 
         }
-    );
+
+    });
+
+});
