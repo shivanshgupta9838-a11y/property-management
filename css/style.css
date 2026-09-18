@@ -1480,3 +1480,27 @@ tr:last-child td {
 html{
     scroll-behavior: smooth;
 }
+
+/* Mobile Login Fix */
+@media (max-width: 768px) {
+
+    .login-page {
+        position: relative;
+        z-index: 1;
+    }
+
+    .login-box {
+        position: relative;
+        z-index: 10;
+        pointer-events: auto;
+    }
+
+    .login-box input,
+    .login-box button,
+    .login-box form {
+        position: relative;
+        z-index: 20;
+        pointer-events: auto;
+    }
+
+}
