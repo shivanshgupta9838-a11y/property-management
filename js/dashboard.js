@@ -1,3 +1,57 @@
+document.addEventListener("DOMContentLoaded", async function () {
+
+    // ==========================================
+    // ADMIN AUTHENTICATION CHECK
+    // ==========================================
+
+    const {
+        data: { session }
+    } = await supabaseClient.auth.getSession();
+
+    if (!session) {
+
+        window.location.href = "login.html";
+
+        return;
+    }
+
+
+    // ==========================================
+    // DASHBOARD DATA
+    // ==========================================
+
+    const properties =
+        JSON.parse(localStorage.getItem("properties")) || [];
+
+    const owners =
+        JSON.parse(localStorage.getItem("owners")) || [];
+
+    const inquiries =
+        JSON.parse(localStorage.getItem("inquiries")) || [];
+
+
+    document.getElementById("totalProperties").textContent =
+        properties.length;
+
+    document.getElementById("totalOwners").textContent =
+        owners.length;
+
+    document.getElementById("totalInquiries").textContent =
+        inquiries.length;
+
+
+    const available = properties.filter(function (property) {
+        return property.status === "Available";
+    });
+
+    document.getElementById("availableProperties").textContent =
+        available.length;
+
+
+    showRecentProperties(properties);
+    showRecentInquiries(inquiries);
+
+});
 // ==========================================
 // DASHBOARD - SUPABASE
 // ==========================================
